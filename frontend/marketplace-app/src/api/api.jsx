@@ -1,3 +1,5 @@
+import { useUserStore } from "../store/store"
+
 export const registerUser = async (user) => {
     try {
         const req = await fetch("https://kitek.ktkv.dev/marketplace/api/auth/register", {
@@ -40,5 +42,33 @@ export const loginUser = async (user) => {
     } catch (err) {
         console.error(err)
         throw new Error(err)
+    }
+}
+export const fetchPosts = async () => {
+    try {
+        const res = await fetch(`https://kitek.ktkv.dev/marketplace/api/items`)
+        const json = await res.json()
+        return json
+    } catch (err) {
+        console.error(err)
+    }
+
+}
+export const postItem = async (item) => {
+    try {
+        const { jwt } = useUserStore.getState()
+        const req = await fetch(`https://kitek.ktkv.dev/marketplace/api/items`,
+            {
+                method: "POST",
+                body: JSON.stringify(item),
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + jwt.token
+                },
+            }
+        )
+        console.log(await req.json())
+    } catch (err) {
+        console.error(err)
     }
 }

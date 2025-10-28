@@ -3,10 +3,11 @@ import { Link, useNavigate } from "react-router-dom"
 import Button from "../components/Button"
 import Input from "../components/Input"
 import { loginUser } from "../api/api"
+import { useUserStore } from "../store/store"
 
 const SignIn = () => {
     const [error, setError] = useState("")
-    //const { setJWT } = useUserStore()
+    const { setJWT } = useUserStore()
     const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
@@ -21,7 +22,7 @@ const SignIn = () => {
             const json = await loginUser(user)
             if (!json.success) throw new Error(json.error)
             console.log(json)
-            //setJWT(json.token)
+            setJWT(json.token)
             navigate("/")
         } catch (err) {
             console.error(err)
