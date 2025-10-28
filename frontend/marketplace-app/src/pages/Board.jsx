@@ -6,7 +6,6 @@ const Board = () => {
     const { jwt } = useUserStore() 
     return (
         <>
-        <h1>Board</h1>
         {jwt && <ItemField />}
         <Feed />
         </>

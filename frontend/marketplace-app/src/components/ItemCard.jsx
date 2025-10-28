@@ -9,7 +9,11 @@ const ItemCard = ({ id, title, description, price, userId, username, status, ima
                 <span className="item-desc">{description}</span>
                 <span className="item-price">{price}</span>
                 <span className="item-created">{createdAt}</span>
-                <span className="item-img">{imageUrl}</span>
+                {imageUrl && (
+                    <div className="item-img">
+                        <img src={imageUrl} alt={title} />
+                    </div>
+                )}
             </div>
         </div>
     )

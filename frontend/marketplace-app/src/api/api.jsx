@@ -67,7 +67,11 @@ export const postItem = async (item) => {
                 },
             }
         )
-        console.log(await req.json())
+        const res = await req.json()
+        if (!res.success) {
+            throw new Error(res.error)
+        }
+        return res
     } catch (err) {
         console.error(err)
     }

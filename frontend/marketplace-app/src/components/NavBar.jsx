@@ -16,6 +16,9 @@ const NavBar = () => {
                             <li>
                                 <Link className="navbar-link" to={"/logout"}>Logout</Link>
                             </li>
+                            <li>
+                                <Link className="navbar-link" to={"/my-items"}>My Items</Link>
+                            </li>
                         </>
                     ) : (<Link className="navbar-link" to={"/signin"}>SignIn</Link>)}
                 </ul>

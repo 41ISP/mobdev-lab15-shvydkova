@@ -4,30 +4,35 @@ import Board from "../pages/Board";
 import Logout from "../pages/Logout";
 import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
+import Feed from "../components/Feed";
 
 export const router = createBrowserRouter(
     [
-{
-        path: "/signup",
-        element: <SignUp />
-    },
-    {
-        path: "/signin",
-        element: <SignIn />
-    },
-    {
-    path: "/logout",
-    element: <Logout />
-    },
-    { 
-        path: "/",
-        element:<Layout />,
-        children: [
-            {
-                index:true, 
-                element: <Board />
-            },         
-        ],
-    },
+        {
+            path: "/signup",
+            element: <SignUp />
+        },
+        {
+            path: "/signin",
+            element: <SignIn />
+        },
+        {
+            path: "/logout",
+            element: <Logout />
+        },
+        {
+            path: "/",
+            element: <Layout />,
+            children: [
+                {
+                    index: true,
+                    element: <Board />
+                },
+                {
+                    path: "/my-items",
+                    element: <Feed myOwn={true} />
+                }
+            ],
+        },
     ],
 )
