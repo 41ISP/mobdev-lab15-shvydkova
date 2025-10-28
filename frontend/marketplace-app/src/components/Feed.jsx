@@ -19,10 +19,10 @@ const Feed = ({ myOwn = false }) => {
     }, [])
     return (
         <>
-            <div className="messages-section">
+            <div className="items-section">
                 <div className="container">
                     <h2 className="section-title">Items</h2>
-                    <div className="messages-grid">
+                    <div className="items-grid">
                         {!myOwn ?
                             items && items.map((item) => (
                                 <ItemCard key={item.id} {...item} />

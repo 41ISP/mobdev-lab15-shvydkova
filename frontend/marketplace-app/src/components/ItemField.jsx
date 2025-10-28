@@ -23,11 +23,11 @@ const ItemField = () => {
 
     return (
         <>
-            <div className="create-message-section">
+            <div className="create-item-section">
                 <div className="container">
-                    <div className="create-message-card">
-                        <h2 className="create-message-title">Create item</h2>
-                        <form onSubmit={handleSubmit} action="" className="create-message-form">
+                    <div className="create-item-card">
+                        <h2 className="create-item-title">Create item</h2>
+                        <form onSubmit={handleSubmit} action="" className="create-item-form">
                             <Input placeholder="title" required name="title"></Input>
                             <Input placeholder="description" required name="description"></Input>
                             <Input placeholder="price" required name="price"></Input>
