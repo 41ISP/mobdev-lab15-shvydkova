@@ -126,7 +126,7 @@ export const createBid = async (itemId, amount) => {
         }
         const req = await fetch(`https://kitek.ktkv.dev/marketplace/api/items/${itemId}/bids`, {
             method: "POST",
-            body: JSON.stringify({ amount: Number(amount) }),
+            body: JSON.stringify({amount}),
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": "Bearer " + jwt.token

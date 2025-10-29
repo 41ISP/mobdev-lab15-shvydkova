@@ -30,7 +30,7 @@ const MyBids = () => {
             <h1>My Bids</h1>
                 <div className="my-bids-list">
                     {bids.map(bid => (
-                        <div key={bid.id} className={`bid-card ${bid.isWinning ? 'winning' : 'outbid'}`} onClick={() => navigate(`/item/${bid.itemId}`)}>
+                        <div key={bid.id} className={`bid-card ${bid.isWinning ? 'Winning' : 'Outbid'}`} onClick={() => navigate(`/item/${bid.itemId}`)}>
                             <div className="bid-item-info">
                                 <h3>{bid.itemTitle}</h3>
                                 <p className="bid-amount">Your bid: {bid.amount}₽</p>
