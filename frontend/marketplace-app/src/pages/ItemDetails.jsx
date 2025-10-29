@@ -2,17 +2,27 @@ import { useNavigate, useParams } from "react-router-dom"
 import { useItemStore } from "../store/useItemStore"
 import { useUserStore } from "../store/store"
 import BidField from "../components/BidField"
+import { useEffect } from "react"
 
 const ItemDetails = () => {
     const navigate = useNavigate()
     const { id } = useParams()
-    const { items } = useItemStore()
+    const { items, getItems } = useItemStore()
     const { jwt } = useUserStore()
+
+    useEffect(() => {
+        if (!items || items.length === 0) {
+            getItems()
+        }
+    }, [items, getItems])
 
     const item = items?.filter(item => item.id == id)[0]
 
     const handleClick = () => {
         navigate("/")
+    }
+    if (!items || !item) {
+        return (<p>Wait🖐🏼</p>)
     }
 
     const { title, description, price, userId, username, imageUrl, createdAt, highestBid, bidCount } = item
@@ -40,7 +50,7 @@ const ItemDetails = () => {
                     </div>
                 </div>
                 {jwt && !isOwner && (
-                    <BidField itemId={id} currentPrice={highestBid || price}/>
+                    <BidField itemId={id} currentPrice={highestBid || price} />
                 )}
                 <div className="bids-info">
                     <h3>Bids Information</h3>

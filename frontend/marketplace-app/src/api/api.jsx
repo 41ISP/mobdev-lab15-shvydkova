@@ -107,7 +107,6 @@ export const fetchItemDetails = async (id) => {
     }
 }
 
-// Получение ставок на товар
 export const fetchItemBids = async (id) => {
     try {
         const res = await fetch(`https://kitek.ktkv.dev/marketplace/api/items/${id}/bids`)
@@ -119,31 +118,28 @@ export const fetchItemBids = async (id) => {
     }
 }
 
-// Создание ставки
 export const createBid = async (itemId, amount) => {
     try {
         const { jwt } = useUserStore.getState()
+        if (!jwt?.token) {
+            throw new Error("No authentication")
+        }
         const req = await fetch(`https://kitek.ktkv.dev/marketplace/api/items/${itemId}/bids`, {
             method: "POST",
-            body: JSON.stringify({ amount }),
+            body: JSON.stringify({ amount: Number(amount) }),
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": "Bearer " + jwt.token
             }
         })
-
         const res = await req.json()
-        if (!res.success) {
-            throw new Error(res.error)
-        }
         return res
     } catch (err) {
         console.error(err)
-        throw new Error(err)
+        throw new Error(err.message)
     }
 }
 
-// Получение моих ставок
 export const fetchMyBids = async () => {
     try {
         const { jwt } = useUserStore.getState()
