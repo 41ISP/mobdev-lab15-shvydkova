@@ -14,10 +14,13 @@ const NavBar = () => {
                     {jwt ? (
                         <>
                             <li>
-                                <Link className="navbar-link" to={"/logout"}>Logout</Link>
+                                <Link className="navbar-link" to={"/my-bids"}>My Bids</Link>
                             </li>
                             <li>
                                 <Link className="navbar-link" to={"/my-items"}>My Items</Link>
+                            </li>
+                            <li>
+                                <Link className="navbar-link" to={"/logout"}>Logout</Link>
                             </li>
                         </>
                     ) : (<Link className="navbar-link" to={"/signin"}>SignIn</Link>)}
