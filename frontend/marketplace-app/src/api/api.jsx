@@ -121,12 +121,9 @@ export const fetchItemBids = async (id) => {
 export const createBid = async (itemId, amount) => {
     try {
         const { jwt } = useUserStore.getState()
-        if (!jwt?.token) {
-            throw new Error("No authentication")
-        }
         const req = await fetch(`https://kitek.ktkv.dev/marketplace/api/items/${itemId}/bids`, {
             method: "POST",
-            body: JSON.stringify({amount}),
+            body: JSON.stringify({ amount }),
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": "Bearer " + jwt.token

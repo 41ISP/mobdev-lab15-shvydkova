@@ -399,3 +399,16 @@
     height: 50%;
     object-position: center;
 }
+.button-delete {
+  padding: 12px 24px;
+  background: #cf0808;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
+}
