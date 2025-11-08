@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.item-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.item-details-image {
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.item-details-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.item-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.item-details .item-image {
+    max-width: 400px;
+    height: 300px;
+    margin: 0 auto 20px;
+}
+
+.item-details .item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    object-position: center;
+}
+
+.item-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 8px;
+    background: white;
+    color: #213547;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #213547;
+}
+
+.item-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.item-username {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.item-desc {
+    color: #333;
+    margin: 8px 0;
+}
+
+.item-price {
+    font-weight: bold;
+    color: #2e7d32;
+    font-size: 1.1em;
+}
+
+.item-highest-bid {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+.item-bid-count {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.item-created {
+    color: #999;
+    font-size: 0.8em;
+    margin-top: 8px;
+}
